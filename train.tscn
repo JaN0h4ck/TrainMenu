@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://bnpdi3k2nj3qj"]
+
+[node name="Train" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+size = Vector3(3.472, 0.25, 10)
+
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34, 0)
+size = Vector3(3.472, 0.25, 10)
+
+[node name="WallLeftComb" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.461, -0.00576639, 0)
+operation = 2
+
+[node name="WallLeft" type="CSGBox3D" parent="WallLeftComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.675, 0)
+size = Vector3(0.15, 3.59, 10)
+
+[node name="Window1" type="CSGBox3D" parent="WallLeftComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.6, 3)
+operation = 2
+size = Vector3(0.3, 1, 2)
+
+[node name="Window2" type="CSGBox3D" parent="WallLeftComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.6, 0)
+operation = 2
+size = Vector3(0.3, 1, 2)
+
+[node name="Window3" type="CSGBox3D" parent="WallLeftComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.6, -2.5)
+operation = 2
+size = Vector3(0.3, 1, 2)
+
+[node name="WallRightComb" type="CSGCombiner3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.461, -0.00576639, 0)
+
+[node name="WallRight" type="CSGBox3D" parent="WallRightComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1.675, 0)
+size = Vector3(0.15, 3.59, 10)
+
+[node name="Window1" type="CSGBox3D" parent="WallRightComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1.6, 2.5)
+operation = 2
+size = Vector3(0.3, 1, 2)
+
+[node name="Window2" type="CSGBox3D" parent="WallRightComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1.6, 0)
+operation = 2
+size = Vector3(0.3, 1, 2)
+
+[node name="Window3" type="CSGBox3D" parent="WallRightComb"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1.6, -2.5)
+operation = 2
+size = Vector3(0.3, 1, 2)
+
+[node name="SeatArrangements" type="Node3D" parent="."]
+
+[node name="SeatArrangementLeft" type="Node3D" parent="SeatArrangements"]
+
+[node name="Table2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08611, 1.07, 0)
+size = Vector3(1, 0.05, 0.5)
+
+[node name="SeatBase3" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985694, 0.375, 0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft/SeatBase3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft/SeatBase3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft/SeatBase3"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatBase4" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.985694, 0.375, -0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft/SeatBase4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft/SeatBase4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft/SeatBase4"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatArrangementLeft2" type="Node3D" parent="SeatArrangements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="Table2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08611, 1.07, 0)
+size = Vector3(1, 0.05, 0.5)
+
+[node name="SeatBase3" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.985694, 0.375, 0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2/SeatBase3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2/SeatBase3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2/SeatBase3"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatBase4" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.985694, 0.375, -0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2/SeatBase4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2/SeatBase4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementLeft2/SeatBase4"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatArrangementRight1" type="Node3D" parent="SeatArrangements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="Table" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 1.07, 0)
+size = Vector3(1, 0.05, 0.5)
+
+[node name="SeatBase" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986, 0.375, 0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatBase2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.986, 0.375, -0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight1/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatArrangementRight2" type="Node3D" parent="SeatArrangements"]
+
+[node name="Table" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 1.07, 0)
+size = Vector3(1, 0.05, 0.5)
+
+[node name="SeatBase" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986, 0.375, 0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatBase2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.986, 0.375, -0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight2/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatArrangementRight3" type="Node3D" parent="SeatArrangements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="Table" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.085, 1.07, 0)
+size = Vector3(1, 0.05, 0.5)
+
+[node name="SeatBase" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.986, 0.375, 0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3/SeatBase"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)
+
+[node name="SeatBase2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.986, 0.375, -0.633)
+size = Vector3(1.2, 0.5, 0.5)
+
+[node name="Seat" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Seat2" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+size = Vector3(0.55, 0.55, 0.5)
+
+[node name="Backrest" type="CSGBox3D" parent="SeatArrangements/SeatArrangementRight3/SeatBase2"]
+transform = Transform3D(1, 0, 0, 0, 0.99044, -0.137946, 0, 0.137946, 0.99044, 0, 0.588932, 0.298529)
+size = Vector3(1.2, 1, 0.05)

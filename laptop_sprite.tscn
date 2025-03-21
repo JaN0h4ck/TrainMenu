@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy7gahw1i4p3n"]
+
+[ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="2_kua4e"]
+[ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="2_pxuq5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(0.39, 0.23, 0.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pxuq5"]
+viewport_path = NodePath("Area3D/Sprite3D/SubViewport")
+
+[node name="Laptop" type="Node3D"]
+
+[node name="Keyboard" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.109803)
+size = Vector3(0.39, 0.23, 0.01)
+material = ExtResource("2_kua4e")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115, 0)
+script = ExtResource("2_pxuq5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="DisplayBevel" type="CSGBox3D" parent="Area3D"]
+size = Vector3(0.39, 0.23, 0.01)
+material = ExtResource("2_kua4e")
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00502203)
+pixel_size = 0.0003
+texture = SubResource("ViewportTexture_pxuq5")
+
+[node name="SubViewport" type="SubViewport" parent="Area3D/Sprite3D"]
+size = Vector2i(1280, 720)
+
+[node name="Control" type="Control" parent="Area3D/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Area3D/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Quit" type="Button" parent="Area3D/Sprite3D/SubViewport/Control/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 426
+text = "Quit"
+
+[connection signal="input_event" from="Area3D" to="Area3D" method="_on_input_event"]
+[connection signal="button_down" from="Area3D/Sprite3D/SubViewport/Control/MarginContainer/Quit" to="Area3D" method="_on_quit_button_down"]
