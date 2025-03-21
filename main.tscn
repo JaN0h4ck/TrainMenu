@@ -22,7 +22,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -34,7 +34,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
@@ -98,6 +98,6 @@ libraries = {
 }
 
 [node name="Laptop" parent="." instance=ExtResource("3_h2yge")]
-transform = Transform3D(0.991445, 0, 0.130526, 0, 1, 0, -0.130526, 0, 0.991445, 1.203, 1.1008, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.366, 1.101, -0.01)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]
