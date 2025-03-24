@@ -1,16 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://be70jip3huvv"]
+[gd_scene load_steps=8 format=3 uid="uid://be70jip3huvv"]
 
 [ext_resource type="Shader" uid="uid://ktgs63ieq1as" path="res://scripts/RetroShader.gdshader" id="1_02ew8"]
 [ext_resource type="PackedScene" uid="uid://c5jbgtamagw6m" path="res://main.tscn" id="1_sr33b"]
+[ext_resource type="Shader" uid="uid://b2pnq3yr2xv8c" path="res://Mat/SkyBox.gdshader" id="3_kerld"]
+[ext_resource type="Texture2D" uid="uid://bf4w23l4xt562" path="res://Mat/Tex/NightSky.png" id="4_craev"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kerld"]
 shader = ExtResource("1_02ew8")
 shader_parameter/change_color_depth = true
 shader_parameter/target_color_depth = 5
 shader_parameter/dithering = true
-shader_parameter/scale_resolution = false
-shader_parameter/target_resolution_scale = 3
+shader_parameter/scale_resolution = true
+shader_parameter/target_resolution_scale = 2
 shader_parameter/enable_recolor = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_craev"]
+render_priority = 0
+shader = ExtResource("3_kerld")
+shader_parameter/sky_texture = ExtResource("4_craev")
+shader_parameter/lock_aspect = true
+shader_parameter/aspect_ratio = 1.33333
+shader_parameter/fov = Vector2(180, 90)
+shader_parameter/tiling = Vector2i(1, 1)
+shader_parameter/offset = Vector2(10, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_02ew8"]
+material = SubResource("ShaderMaterial_craev")
+flip_faces = true
+size = Vector3(3000, 3000, 3000)
 
 [node name="MainContainer" type="Control"]
 layout_mode = 3
@@ -37,3 +54,6 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_sr33b")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_02ew8")
