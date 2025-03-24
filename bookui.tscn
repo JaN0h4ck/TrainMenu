@@ -78,18 +78,18 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="BookUI" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 120.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_2h34f")
+[node name="BookUI" type="Node2D"]
 script = ExtResource("2_y5ud0")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 112.0
+offset_right = 785.0
+offset_bottom = 640.0
+theme = ExtResource("1_2h34f")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,17 +97,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsBtn" type="Button" parent="MarginContainer"]
+[node name="SettingsBtn" type="Button" parent="Control/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 180
 text = "Settings"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(392, 216)
+position = Vector2(392, 336)
 scale = Vector2(13, 10.5)
 sprite_frames = SubResource("SpriteFrames_oqn5p")
 frame = 9
 frame_progress = 1.0
 
-[connection signal="pressed" from="MarginContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]

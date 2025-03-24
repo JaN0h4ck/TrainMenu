@@ -16,10 +16,11 @@ func request_quit():
 	quit_queued = true
 	anim_player.play(&"Quit")
 
-func request_settings():
+func request_settings() -> bool:
 	if quit_queued:
 		print("quit already qued")
-		return
+		return false
 	if settings_queued:
-		return
+		return false
 	anim_player.play(&"Settings")
+	return true
