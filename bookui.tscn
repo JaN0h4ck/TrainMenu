@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://u4e65ic3fow1"]
+[gd_scene load_steps=14 format=3 uid="uid://u4e65ic3fow1"]
 
 [ext_resource type="Theme" uid="uid://nl4bt7g5d8fk" path="res://Mat/book_theme.tres" id="1_2h34f"]
 [ext_resource type="Texture2D" uid="uid://bmtqi4wk4oxfg" path="res://Mat/Tex/Book_Sheet_64x64.png" id="2_65bfl"]
+[ext_resource type="Script" uid="uid://cnctorqn2rubt" path="res://scripts/bookui.gd" id="2_y5ud0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5ud0"]
 atlas = ExtResource("2_65bfl")
@@ -77,7 +78,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Control" type="Control"]
+[node name="BookUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,6 +87,7 @@ offset_top = 120.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2h34f")
+script = ExtResource("2_y5ud0")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -107,3 +109,5 @@ scale = Vector2(13, 10.5)
 sprite_frames = SubResource("SpriteFrames_oqn5p")
 frame = 9
 frame_progress = 1.0
+
+[connection signal="pressed" from="MarginContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]

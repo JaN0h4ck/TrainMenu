@@ -22,4 +22,4 @@ func request_settings():
 		return
 	if settings_queued:
 		return
-	# TODO anim player
+	anim_player.play(&"Settings")
