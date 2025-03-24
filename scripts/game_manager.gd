@@ -9,7 +9,7 @@ var config = ConfigFile.new()
 const SETTINGS_PATH: String = "user://settings.cfg"
 
 func _ready() -> void:
-	anim_player = get_tree().root.get_node("/root/Main/AnimationPlayer")
+	anim_player = get_tree().root.get_node("/root/MainContainer/SubViewportContainer/SubViewport/Main/AnimationPlayer")
 	if(anim_player == null):
 		push_error("Anim Tree reference isn't set!")
 	if FileAccess.file_exists(SETTINGS_PATH):

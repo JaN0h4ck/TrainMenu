@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Train Menu"
+run/main_scene="uid://be70jip3huvv"
 config/project_settings_override="user://base_settings.cfg"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/image="uid://c5202aysjqdk"
