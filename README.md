@@ -5,3 +5,5 @@ Assets are ours, unless otherwise specified.
 
 ## External Assets
 [Script](https://github.com/Chevifier/ChevifierTutorials/blob/main/DiegeticUITutorial/Better%20Implementation/Area3D.gd) for Diegetic UI by [Chevifier](https://github.com/Chevifier)
+
+[Book Animation](https://opengameart.org/content/book-animation) by [Stagnation](https://opengameart.org/users/stagnation) CC-BY 3.0
