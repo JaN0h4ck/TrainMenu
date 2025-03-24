@@ -103,10 +103,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 180
 text = "Settings"
 
-[node name="Control" type="Control" parent="Control/MarginContainer"]
+[node name="SettingsUI" type="Control" parent="Control/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/SettingsUI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,63 +114,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Left" type="VBoxContainer" parent="Control/MarginContainer/Control/HBoxContainer"]
+[node name="Left" type="VBoxContainer" parent="Control/MarginContainer/SettingsUI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="Control/MarginContainer/Control/HBoxContainer/Left"]
+[node name="Title" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Left"]
 layout_mode = 2
 text = "Video Settings"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/Control/HBoxContainer/Left"]
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Left"]
 layout_mode = 2
 
-[node name="FullScreen" type="CheckBox" parent="Control/MarginContainer/Control/HBoxContainer/Left"]
+[node name="FullScreen" type="CheckBox" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Left"]
 layout_mode = 2
 text = "Fullscreen"
 
-[node name="Borderless" type="CheckBox" parent="Control/MarginContainer/Control/HBoxContainer/Left"]
+[node name="Borderless" type="CheckBox" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Left"]
 layout_mode = 2
 text = "Borderless"
 
-[node name="VSeparator" type="VSeparator" parent="Control/MarginContainer/Control/HBoxContainer"]
+[node name="Button" type="Button" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Left"]
+layout_mode = 2
+text = "Back to train Menu"
+
+[node name="VSeparator" type="VSeparator" parent="Control/MarginContainer/SettingsUI/HBoxContainer"]
 layout_mode = 2
 
-[node name="Right" type="VBoxContainer" parent="Control/MarginContainer/Control/HBoxContainer"]
+[node name="Right" type="VBoxContainer" parent="Control/MarginContainer/SettingsUI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control/HBoxContainer/Right"]
+[node name="Label" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
 text = "Audio Settings"
 horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="Control/MarginContainer/Control/HBoxContainer/Right"]
+[node name="HSeparator2" type="HSeparator" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
 
-[node name="SFXVolume" type="HBoxContainer" parent="Control/MarginContainer/Control/HBoxContainer/Right"]
+[node name="SFXVolume" type="HBoxContainer" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control/HBoxContainer/Right/SFXVolume"]
+[node name="Label" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/SFXVolume"]
 layout_mode = 2
 text = "SFX  "
 
-[node name="HSlider" type="HSlider" parent="Control/MarginContainer/Control/HBoxContainer/Right/SFXVolume"]
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/SFXVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/Control/HBoxContainer/Right"]
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
 
-[node name="MusVolume" type="HBoxContainer" parent="Control/MarginContainer/Control/HBoxContainer/Right"]
+[node name="MusVolume" type="HBoxContainer" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/MarginContainer/Control/HBoxContainer/Right/MusVolume"]
+[node name="Label" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/MusVolume"]
 layout_mode = 2
 text = "Music"
 
-[node name="HSlider" type="HSlider" parent="Control/MarginContainer/Control/HBoxContainer/Right/MusVolume"]
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/MusVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 
