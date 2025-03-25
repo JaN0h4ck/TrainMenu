@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="4_lquwl"]
 [ext_resource type="LightmapGIData" uid="uid://chmgqclm5vgld" path="res://Stuff/main.lmbake" id="6_7mycd"]
 [ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://dv2yweniq0h56" path="res://play_ui.tscn" id="8_5vw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -176,9 +177,6 @@ height = 0.2
 [sub_resource type="ViewportTexture" id="ViewportTexture_4c57u"]
 viewport_path = NodePath("Play/Sprite3D/SubViewport")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
-bg_color = Color(0.173335, 0.313288, 0.675335, 1)
-
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
 
@@ -259,23 +257,7 @@ texture = SubResource("ViewportTexture_4c57u")
 [node name="SubViewport" type="SubViewport" parent="Play/Sprite3D"]
 size = Vector2i(78, 32)
 
-[node name="Control" type="Control" parent="Play/Sprite3D/SubViewport"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="Play/Sprite3D/SubViewport/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_efxa6")
-text = "Play"
+[node name="PlayUI" parent="Play/Sprite3D/SubViewport" instance=ExtResource("8_5vw27")]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]
 [connection signal="input_event" from="Book" to="Book" method="_on_input_event"]
