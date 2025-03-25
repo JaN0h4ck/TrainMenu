@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5jbgtamagw6m"]
+[gd_scene load_steps=23 format=3 uid="uid://c5jbgtamagw6m"]
 
 [ext_resource type="Script" uid="uid://qlug1odhyb3y" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bnpdi3k2nj3qj" path="res://train.tscn" id="1_ig7tw"]
@@ -145,6 +145,9 @@ size = Vector3(0.393, 0.013, 0.32)
 [sub_resource type="ViewportTexture" id="ViewportTexture_1bvp3"]
 viewport_path = NodePath("Book/Sprite3D/SubViewport")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(0.855, 0.37, 0.19)
+
 [sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
 material = ExtResource("7_272bh")
 size = Vector3(0.855, 0.37, 0.19)
@@ -213,12 +216,15 @@ bounces = 4
 directional = true
 light_data = ExtResource("6_7mycd")
 
-[node name="Play" type="Node3D" parent="."]
+[node name="Play" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843, 1.80091, -2.227)
+script = ExtResource("4_lquwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Play"]
+shape = SubResource("BoxShape3D_272bh")
 
 [node name="Sign" type="MeshInstance3D" parent="Play"]
 mesh = SubResource("BoxMesh_5vw27")
-skeleton = NodePath("../../root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Main")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Play"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339433, 0.251403, 0)
@@ -256,3 +262,4 @@ text = "Play"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]
 [connection signal="input_event" from="Book" to="Book" method="_on_input_event"]
+[connection signal="input_event" from="Play" to="Play" method="_on_input_event"]
