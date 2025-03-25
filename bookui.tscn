@@ -94,13 +94,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 8.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SettingsBtn" type="Button" parent="Control/MarginContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 180
+theme_override_font_sizes/font_size = 130
 text = "Settings"
 
 [node name="SettingsUI" type="Control" parent="Control/MarginContainer"]
@@ -134,7 +136,7 @@ text = "Fullscreen"
 layout_mode = 2
 text = "Borderless"
 
-[node name="Button" type="Button" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Left"]
+[node name="BackButton" type="Button" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Left"]
 layout_mode = 2
 text = "Back to train Menu"
 
@@ -187,3 +189,5 @@ frame = 9
 frame_progress = 1.0
 
 [connection signal="pressed" from="Control/MarginContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="toggled" from="Control/MarginContainer/SettingsUI/HBoxContainer/Left/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="pressed" from="Control/MarginContainer/SettingsUI/HBoxContainer/Left/BackButton" to="." method="_on_back_button_pressed"]
