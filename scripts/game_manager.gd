@@ -55,9 +55,11 @@ func request_settings() -> bool:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	return true
 
-func request_settings_to_idle():
+func request_settings_to_idle() -> bool:
 	if current_state == states.settings:
 		current_state = states.reverse_setting
 		state_changed.emit(current_state)
 		anim_player.play(&"ReverseSettings")
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		return true
+	return false
