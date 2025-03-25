@@ -190,4 +190,5 @@ frame_progress = 1.0
 
 [connection signal="pressed" from="Control/MarginContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
 [connection signal="toggled" from="Control/MarginContainer/SettingsUI/HBoxContainer/Left/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/SettingsUI/HBoxContainer/Left/Borderless" to="." method="_on_borderless_toggled"]
 [connection signal="pressed" from="Control/MarginContainer/SettingsUI/HBoxContainer/Left/BackButton" to="." method="_on_back_button_pressed"]
