@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://4cw38ecodjt0"
-path="res://.godot/imported/250324_TrainMenu_0.gltf-7cdbeaa03ab09962ccf68f63b8894d39.scn"
+uid="uid://b8odbhn2bexia"
+path="res://.godot/imported/train.gltf-5fc31b760348226b294d8f5d64af8482.scn"
 
 [deps]
 
-source_file="res://Models/250324_TrainMenu_0.gltf"
-dest_files=["res://.godot/imported/250324_TrainMenu_0.gltf-7cdbeaa03ab09962ccf68f63b8894d39.scn"]
+source_file="res://Models/train_full/train.gltf"
+dest_files=["res://.godot/imported/train.gltf-5fc31b760348226b294d8f5d64af8482.scn"]
 
 [params]
 

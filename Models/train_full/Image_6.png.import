@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l3xlvco4s5so"
-path.s3tc="res://.godot/imported/250324_TrainMenu_0_3.png-71b908cb40cc457a4d7e5617acdc0ca5.s3tc.ctex"
+uid="uid://d06nrenfa3xnh"
+path.s3tc="res://.godot/imported/Image_6.png-6d19c68a22a226307ce3754f781ef821.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "cb39589cd08b2ccf027dea93eb05a96a"
-}
 
 [deps]
 
-source_file="res://Models/250324_TrainMenu_0_3.png"
-dest_files=["res://.godot/imported/250324_TrainMenu_0_3.png-71b908cb40cc457a4d7e5617acdc0ca5.s3tc.ctex"]
+source_file="res://Models/train_full/Image_6.png"
+dest_files=["res://.godot/imported/Image_6.png-6d19c68a22a226307ce3754f781ef821.s3tc.ctex"]
 
 [params]
 
