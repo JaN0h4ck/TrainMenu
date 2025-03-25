@@ -180,6 +180,14 @@ text = "Music"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Made with Love by
+JaN0h4ck and Jekdersnek
+
+(Still kinda WIP tho, sry)"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
 position = Vector2(392, 336)

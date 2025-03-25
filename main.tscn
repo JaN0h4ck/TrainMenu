@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c5jbgtamagw6m"]
+[gd_scene load_steps=22 format=3 uid="uid://c5jbgtamagw6m"]
 
 [ext_resource type="Script" uid="uid://qlug1odhyb3y" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bnpdi3k2nj3qj" path="res://train.tscn" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://u4e65ic3fow1" path="res://bookui.tscn" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="4_lquwl"]
 [ext_resource type="LightmapGIData" uid="uid://cd8jx6kqt38wp" path="res://Stuff/main.lmbake" id="6_7mycd"]
+[ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -144,6 +145,22 @@ size = Vector3(0.393, 0.013, 0.32)
 [sub_resource type="ViewportTexture" id="ViewportTexture_1bvp3"]
 viewport_path = NodePath("Book/Sprite3D/SubViewport")
 
+[sub_resource type="BoxMesh" id="BoxMesh_5vw27"]
+material = ExtResource("7_272bh")
+size = Vector3(0.855, 0.37, 0.19)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kek77"]
+material = ExtResource("7_272bh")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4c57u"]
+viewport_path = NodePath("Play/Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
+bg_color = Color(0.173335, 0.313288, 0.675335, 1)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_h2yge")
 
@@ -195,6 +212,47 @@ quality = 3
 bounces = 4
 directional = true
 light_data = ExtResource("6_7mycd")
+
+[node name="Play" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843, 1.80091, -2.227)
+
+[node name="Sign" type="MeshInstance3D" parent="Play"]
+mesh = SubResource("BoxMesh_5vw27")
+skeleton = NodePath("../../root/@EditorNode@21269/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11479/@VSplitContainer@11131/@HSplitContainer@11133/@HSplitContainer@11135/@Control@11136/@SubViewportContainer@11137/@SubViewport@11138/Main")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Play"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339433, 0.251403, 0)
+mesh = SubResource("CylinderMesh_kek77")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Play"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0152615, 0.251403, 0)
+mesh = SubResource("CylinderMesh_kek77")
+surface_material_override/0 = ExtResource("7_272bh")
+
+[node name="Sprite3D" type="Sprite3D" parent="Play"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0988998)
+texture = SubResource("ViewportTexture_4c57u")
+
+[node name="SubViewport" type="SubViewport" parent="Play/Sprite3D"]
+size = Vector2i(78, 32)
+
+[node name="Control" type="Control" parent="Play/Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Play/Sprite3D/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_efxa6")
+text = "Play"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]
 [connection signal="input_event" from="Book" to="Book" method="_on_input_event"]

@@ -28,5 +28,7 @@ MarginContainer/constants/margin_bottom = 64
 MarginContainer/constants/margin_left = 59
 MarginContainer/constants/margin_right = 64
 MarginContainer/constants/margin_top = 50
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/normal_font = ExtResource("1_5kyl1")
 VSeparator/constants/separation = 26
 VSeparator/styles/separator = SubResource("StyleBoxLine_y78k5")
