@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5jbgtamagw6m"]
+[gd_scene load_steps=26 format=3 uid="uid://c5jbgtamagw6m"]
 
 [ext_resource type="Script" uid="uid://qlug1odhyb3y" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bnpdi3k2nj3qj" path="res://train.tscn" id="1_ig7tw"]
@@ -8,6 +8,7 @@
 [ext_resource type="LightmapGIData" uid="uid://chmgqclm5vgld" path="res://Stuff/main.lmbake" id="6_7mycd"]
 [ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dv2yweniq0h56" path="res://play_ui.tscn" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://c30dcusm22lfr" path="res://Audio/SFX/Ambient/Train_Ambient.wav" id="9_kek77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -247,6 +248,9 @@ size = Vector2i(78, 32)
 transform = Transform3D(0.981959, -0.0164807, 0.188375, 0, 0.996195, 0.0871557, -0.189095, -0.0855833, 0.978223, 1.33398, 1.50556, 0.743947)
 fov = 60.0
 
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
+current = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_1bvp3")
@@ -263,6 +267,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_kek77"),
 &"TrainAnimation": SubResource("AnimationLibrary_efxa6")
 }
+
+[node name="AmbientPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.266392, 0)
+stream = ExtResource("9_kek77")
+autoplay = true
+bus = &"Ambient"
 
 [connection signal="input_event" from="Train/Play" to="Train/Play" method="_on_input_event"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]
