@@ -278,6 +278,7 @@ bus = &"Ambient"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_4c57u")
 autoplay = true
+bus = &"Music"
 
 [connection signal="input_event" from="Train/Play" to="Train/Play" method="_on_input_event"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]
