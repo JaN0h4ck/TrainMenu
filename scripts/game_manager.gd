@@ -14,7 +14,15 @@ var current_state: states = states.idling
 
 signal state_changed(state: states)
 
+var master_bus_idx: int
+var sfx_bus_idx: int
+var music_bus_idx: int
+
 func _ready() -> void:
+	master_bus_idx = AudioServer.get_bus_index("Master")
+	sfx_bus_idx = AudioServer.get_bus_index("SFX")
+	music_bus_idx = AudioServer.get_bus_index("Music")
+	
 	anim_player = get_tree().root.get_node("/root/MainContainer/SubViewportContainer/SubViewport/Main/AnimationPlayer")
 	if(anim_player == null):
 		push_error("Anim Tree reference isn't set!")
@@ -22,10 +30,34 @@ func _ready() -> void:
 		anim_player.connect(&"animation_finished", on_animation_finish)
 	if FileAccess.file_exists(SETTINGS_PATH):
 		if config.load(SETTINGS_PATH):
+			AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(config.get_value("audio", "master_volume", 1.0)))
+			AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(config.get_value("audio", "sfx_volume", 1.0)))
+			AudioServer.set_bus_volume_db(music_bus_idx, linear_to_db(config.get_value("audio", "music_volume", 1.0)))
+			
+			var is_fullscreen = config.get_value("video", "fullscreen", false)
+			if is_fullscreen:
+				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+				
 			pass # TODO apply settings (fullscreen, etc)
-		else:
-			# TODO set default values
-			print("Parsing error in config File!")
+	else:
+		config.set_value("video", "fullscreen", false)
+		config.set_value("video", "borderless", false)
+		
+		config.set_value("audio", "master_volume", 1.0)
+		config.set_value("audio", "sfx_volume", 1.0)
+		config.set_value("audio", "music_volume", 1.0)
+		config.save(SETTINGS_PATH)
+
+func save_video_setting(key: String, _value):
+	config.set_value("video", key, _value)
+	config.save(SETTINGS_PATH)
+
+func save_volume_setting(key: String, _value: float):
+	config.set_value("audio", key, _value)
+	config.save(SETTINGS_PATH)
+
+func get_audio_setting(key: String):
+	return config.get_value("audio", key, 1.0)
 
 func on_animation_finish(anim_name: StringName):
 	if(anim_name == &"Settings"):

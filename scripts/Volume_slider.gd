@@ -2,6 +2,8 @@ extends HSlider
 
 @export
 var bus_name: StringName = &""
+@export
+var setting_key: String = ""
 
 var bus_index: int
 
@@ -11,6 +13,8 @@ func _ready() -> void:
 		return
 	bus_index = AudioServer.get_bus_index(bus_name)
 	value_changed.connect(_on_value_changed)
+	drag_ended.connect(_on_drag_ended)
+	value = GameManager.get_audio_setting(setting_key)
 
 func _on_value_changed(_value: float) -> void:
 	AudioServer.set_bus_volume_db(
@@ -18,3 +22,8 @@ func _on_value_changed(_value: float) -> void:
 		linear_to_db(_value)
 	)
 	#TODO settings persistence
+
+func _on_drag_ended(_value_changed: bool) -> void:
+	if not _value_changed:
+		return
+	GameManager.save_volume_setting(setting_key, value)
