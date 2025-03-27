@@ -1,8 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://u4e65ic3fow1"]
+[gd_scene load_steps=16 format=3 uid="uid://u4e65ic3fow1"]
 
 [ext_resource type="Theme" uid="uid://nl4bt7g5d8fk" path="res://Mat/book_theme.tres" id="1_2h34f"]
 [ext_resource type="Texture2D" uid="uid://bmtqi4wk4oxfg" path="res://Mat/Tex/Book_Sheet_64x64.png" id="2_65bfl"]
 [ext_resource type="Script" uid="uid://cnctorqn2rubt" path="res://scripts/bookui.gd" id="2_y5ud0"]
+[ext_resource type="Script" uid="uid://dhhinkx5kyms1" path="res://scripts/Volume_slider.gd" id="3_bvtuy"]
+
+[sub_resource type="GDScript" id="GDScript_7na24"]
+script/source = "extends HSeparator
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5ud0"]
 atlas = ExtResource("2_65bfl")
@@ -152,6 +157,32 @@ layout_mode = 2
 text = "Audio Settings"
 horizontal_alignment = 1
 
+[node name="Volume" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
+layout_mode = 2
+text = "-- Volume --"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
+layout_mode = 2
+script = SubResource("GDScript_7na24")
+
+[node name="MasterVolume" type="HBoxContainer" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/MasterVolume"]
+layout_mode = 2
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_bvtuy")
+bus_name = &"Master"
+setting_key = "master_volume"
+
 [node name="HSeparator2" type="HSeparator" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
 
@@ -160,11 +191,17 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/SFXVolume"]
 layout_mode = 2
-text = "SFX  "
+text = "SFX    "
 
 [node name="HSlider" type="HSlider" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/SFXVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_bvtuy")
+bus_name = &"SFX"
+setting_key = "sfx_volume"
 
 [node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
@@ -174,19 +211,24 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/MusVolume"]
 layout_mode = 2
-text = "Music"
+text = "Music  "
 
 [node name="HSlider" type="HSlider" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right/MusVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_bvtuy")
+bus_name = &"Music"
+setting_key = "music_volume"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
+[node name="Label2" type="Label" parent="Control/MarginContainer/SettingsUI/HBoxContainer/Right"]
 layout_mode = 2
-size_flags_vertical = 3
-text = "Made with Love by
-JaN0h4ck and Jekdersnek
-
-(Still kinda WIP tho, sry)"
+text = "
+Made with <3 by Jekdersnek 
+and JaN0h4ck"
+horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1

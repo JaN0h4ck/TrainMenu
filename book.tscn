@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://rngmvs13kluc"]
+
+[ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="1_y0hms"]
+[ext_resource type="PackedScene" uid="uid://u4e65ic3fow1" path="res://bookui.tscn" id="2_fijbg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_272bh"]
+noise_type = 2
+frequency = 0.0581
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5vw27"]
+as_normal_map = true
+bump_strength = 2.0
+noise = SubResource("FastNoiseLite_272bh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kek77"]
+albedo_color = Color(0.682435, 0.463624, 0.243616, 1)
+roughness = 0.9
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_5vw27")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
+size = Vector3(0.393, 0.013, 0.250332)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1bvp3"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="Book" type="Area3D"]
+script = ExtResource("1_y0hms")
+
+[node name="Book" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83665e-05, 0, 0.034978)
+size = Vector3(0.393, 0.013, 0.249844)
+material = SubResource("StandardMaterial3D_kek77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.034834)
+shape = SubResource("BoxShape3D_h2yge")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.00708628, 0)
+pixel_size = 0.0005
+texture = SubResource("ViewportTexture_1bvp3")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+size = Vector2i(785, 640)
+
+[node name="bookui" parent="Sprite3D/SubViewport" instance=ExtResource("2_fijbg")]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
