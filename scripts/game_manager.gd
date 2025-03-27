@@ -33,12 +33,7 @@ func _ready() -> void:
 			AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(config.get_value("audio", "master_volume", 1.0)))
 			AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(config.get_value("audio", "sfx_volume", 1.0)))
 			AudioServer.set_bus_volume_db(music_bus_idx, linear_to_db(config.get_value("audio", "music_volume", 1.0)))
-			
-			var is_fullscreen = config.get_value("video", "fullscreen", false)
-			if is_fullscreen:
-				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-				
-			pass # TODO apply settings (fullscreen, etc)
+			#setting fullscreen needs to be done in scene by manager bc of the viewport rezise callback
 	else:
 		config.set_value("video", "fullscreen", false)
 		config.set_value("video", "borderless", false)
@@ -56,8 +51,11 @@ func save_volume_setting(key: String, _value: float):
 	config.set_value("audio", key, _value)
 	config.save(SETTINGS_PATH)
 
-func get_audio_setting(key: String):
+func get_audio_setting(key: String) -> float:
 	return config.get_value("audio", key, 1.0)
+
+func get_video_setting_bool(key: String) -> bool:
+	return config.get_value("video", key, false)
 
 func on_animation_finish(anim_name: StringName):
 	if(anim_name == &"Settings"):

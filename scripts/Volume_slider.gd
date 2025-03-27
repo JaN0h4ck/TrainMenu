@@ -21,7 +21,6 @@ func _on_value_changed(_value: float) -> void:
 		bus_index,
 		linear_to_db(_value)
 	)
-	#TODO settings persistence
 
 func _on_drag_ended(_value_changed: bool) -> void:
 	if not _value_changed:
