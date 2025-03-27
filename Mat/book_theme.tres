@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://nl4bt7g5d8fk"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://nl4bt7g5d8fk"]
 
 [ext_resource type="FontFile" uid="uid://cl2erqxhcgi7c" path="res://Font/Holidays Homework.ttf" id="1_5kyl1"]
 
@@ -6,6 +6,26 @@
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5kyl1"]
 color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kyl1"]
+bg_color = Color(0.215902, 0.215902, 0.215902, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5lpu"]
+bg_color = Color(0.215902, 0.215902, 0.215902, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y78k5"]
+bg_color = Color(0.690196, 0.568627, 0.52549, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_y78k5"]
 color = Color(0, 0, 0, 0)
@@ -22,6 +42,9 @@ CheckBox/fonts/font = ExtResource("1_5kyl1")
 CheckBox/styles/normal = SubResource("StyleBoxEmpty_5kyl1")
 HSeparator/constants/separation = 6
 HSeparator/styles/separator = SubResource("StyleBoxLine_5kyl1")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_5kyl1")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_b5lpu")
+HSlider/styles/slider = SubResource("StyleBoxFlat_y78k5")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/fonts/font = ExtResource("1_5kyl1")
 MarginContainer/constants/margin_bottom = 64
