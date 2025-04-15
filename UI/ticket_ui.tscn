@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbae1iu8gcrap"]
+[gd_scene load_steps=7 format=3 uid="uid://dbae1iu8gcrap"]
 
 [ext_resource type="Theme" uid="uid://cpsij3ov0p2cu" path="res://UI/TicketUI/ticket_ui_theme.tres" id="1_70pky"]
-[ext_resource type="Texture2D" uid="uid://dejwgkb7hr0df" path="res://Mat/Tex/xp_background.png" id="1_soluf"]
 [ext_resource type="Texture2D" uid="uid://ddgkkodm0a32e" path="res://UI/TicketUI/IconContinue.png" id="2_ig3on"]
 [ext_resource type="Texture2D" uid="uid://nr7sd0no75bv" path="res://UI/TicketUI/IconManage.png" id="3_vukoh"]
 [ext_resource type="Texture2D" uid="uid://dbar8ccfy3tjy" path="res://UI/TicketUI/IconSelect.png" id="4_wkhi0"]
+[ext_resource type="Texture2D" uid="uid://covg0o3be4ap7" path="res://UI/TicketUI/logo_jan.png" id="5_vukoh"]
+[ext_resource type="Texture2D" uid="uid://be1qchl72r80g" path="res://UI/TicketUI/logo_jake.png" id="6_wkhi0"]
 
 [node name="TicketUI" type="Control"]
 layout_mode = 3
@@ -121,7 +122,7 @@ alignment = 1
 
 [node name="Logo" type="TextureRect" parent="Header/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_soluf")
+texture = ExtResource("5_vukoh")
 expand_mode = 2
 
 [node name="Uhrzeit" type="Label" parent="Header/HBoxContainer"]
@@ -131,5 +132,5 @@ text = "01. Jan 2025 I 00:00"
 
 [node name="Logo2" type="TextureRect" parent="Header/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_soluf")
+texture = ExtResource("6_wkhi0")
 expand_mode = 2
