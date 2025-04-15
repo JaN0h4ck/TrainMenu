@@ -1,13 +1,13 @@
 [gd_scene load_steps=27 format=3 uid="uid://c5jbgtamagw6m"]
 
 [ext_resource type="Script" uid="uid://qlug1odhyb3y" path="res://scripts/main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://bnpdi3k2nj3qj" path="res://train.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dy7gahw1i4p3n" path="res://laptop_sprite.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://rngmvs13kluc" path="res://book.tscn" id="4_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bnpdi3k2nj3qj" path="res://Scenes/train.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dy7gahw1i4p3n" path="res://Scenes/laptop_sprite.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://rngmvs13kluc" path="res://Scenes/book.tscn" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="4_lquwl"]
 [ext_resource type="LightmapGIData" uid="uid://chmgqclm5vgld" path="res://Stuff/main.lmbake" id="6_7mycd"]
 [ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="7_272bh"]
-[ext_resource type="PackedScene" uid="uid://dv2yweniq0h56" path="res://play_ui.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dv2yweniq0h56" path="res://UI/play_ui.tscn" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://c30dcusm22lfr" path="res://Audio/SFX/Ambient/Train_Ambient.wav" id="9_kek77"]
 [ext_resource type="AudioStream" uid="uid://dy1n347t5dfnr" path="res://Audio/Music/Main_Menu_jam.wav" id="10_4c57u"]
 

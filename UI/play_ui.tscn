@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dv2yweniq0h56"]
 
-[ext_resource type="Theme" uid="uid://bcxu0x2ctqxcp" path="res://Mat/sign_theme.tres" id="1_i466o"]
+[ext_resource type="Theme" uid="uid://bcxu0x2ctqxcp" path="res://Mat/sign_theme.tres" id="1_62ila"]
 
 [node name="PlayUI" type="Control"]
 layout_mode = 3
@@ -15,7 +15,7 @@ offset_right = 39.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_i466o")
+theme = ExtResource("1_62ila")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

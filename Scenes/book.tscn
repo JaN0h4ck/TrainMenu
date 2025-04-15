@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://rngmvs13kluc"]
 
-[ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="1_y0hms"]
-[ext_resource type="PackedScene" uid="uid://u4e65ic3fow1" path="res://bookui.tscn" id="2_fijbg"]
+[ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="1_khdek"]
+[ext_resource type="PackedScene" uid="uid://u4e65ic3fow1" path="res://UI/bookui.tscn" id="2_0vt1r"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_272bh"]
 noise_type = 2
@@ -25,7 +25,7 @@ size = Vector3(0.393, 0.013, 0.250332)
 viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="Book" type="Area3D"]
-script = ExtResource("1_y0hms")
+script = ExtResource("1_khdek")
 
 [node name="Book" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83665e-05, 0, 0.034978)
@@ -45,6 +45,6 @@ texture = SubResource("ViewportTexture_1bvp3")
 transparent_bg = true
 size = Vector2i(785, 640)
 
-[node name="bookui" parent="Sprite3D/SubViewport" instance=ExtResource("2_fijbg")]
+[node name="bookui" parent="Sprite3D/SubViewport" instance=ExtResource("2_0vt1r")]
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -58,40 +58,40 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Foreground/Content"]
+[node name="Main" type="VBoxContainer" parent="Foreground/Content"]
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Foreground/Content/VBoxContainer"]
+[node name="Upper" type="HBoxContainer" parent="Foreground/Content/Main"]
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Foreground/Content/VBoxContainer/HBoxContainer"]
+[node name="Continue" type="MarginContainer" parent="Foreground/Content/Main/Upper"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="Foreground/Content/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="Button" type="Button" parent="Foreground/Content/Main/Upper/Continue"]
 custom_minimum_size = Vector2(0, 265)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Continue Game"
 icon = ExtResource("2_ig3on")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Foreground/Content/VBoxContainer/HBoxContainer"]
+[node name="Manage" type="MarginContainer" parent="Foreground/Content/Main/Upper"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button2" type="Button" parent="Foreground/Content/VBoxContainer/HBoxContainer/MarginContainer2"]
+[node name="Button2" type="Button" parent="Foreground/Content/Main/Upper/Manage"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Manage Saves"
 icon = ExtResource("3_vukoh")
 
-[node name="MarginContainer" type="MarginContainer" parent="Foreground/Content/VBoxContainer"]
+[node name="Select" type="MarginContainer" parent="Foreground/Content/Main"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="Foreground/Content/VBoxContainer/MarginContainer"]
+[node name="Button" type="Button" parent="Foreground/Content/Main/Select"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Stage Selection"
