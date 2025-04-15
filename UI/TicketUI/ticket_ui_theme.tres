@@ -1,4 +1,13 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cpsij3ov0p2cu"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cpsij3ov0p2cu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xdjl"]
+content_margin_left = 15.0
+bg_color = Color(0.894922, 0.894922, 0.894922, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mygui"]
 bg_color = Color(1, 1, 1, 1)
@@ -15,10 +24,9 @@ content_margin_right = 16.0
 content_margin_bottom = 12.0
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 1
-border_width_top = 3
+border_width_top = 1
 border_width_right = 1
 border_color = Color(0, 0, 0, 1)
-border_blend = true
 expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3dee"]
@@ -27,6 +35,13 @@ content_margin_right = 16.0
 bg_color = Color(0.201715, 0.225976, 0.286683, 1)
 
 [resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/constants/icon_max_width = 245
+Button/styles/normal = SubResource("StyleBoxFlat_1xdjl")
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
 TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
 TabContainer/constants/side_margin = 4

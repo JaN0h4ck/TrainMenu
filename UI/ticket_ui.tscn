@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbae1iu8gcrap"]
+[gd_scene load_steps=6 format=3 uid="uid://dbae1iu8gcrap"]
 
 [ext_resource type="Theme" uid="uid://cpsij3ov0p2cu" path="res://UI/TicketUI/ticket_ui_theme.tres" id="1_70pky"]
 [ext_resource type="Texture2D" uid="uid://dejwgkb7hr0df" path="res://Mat/Tex/xp_background.png" id="1_soluf"]
+[ext_resource type="Texture2D" uid="uid://ddgkkodm0a32e" path="res://UI/TicketUI/IconContinue.png" id="2_ig3on"]
+[ext_resource type="Texture2D" uid="uid://nr7sd0no75bv" path="res://UI/TicketUI/IconManage.png" id="3_vukoh"]
+[ext_resource type="Texture2D" uid="uid://dbar8ccfy3tjy" path="res://UI/TicketUI/IconSelect.png" id="4_wkhi0"]
 
 [node name="TicketUI" type="Control"]
 layout_mode = 3
@@ -18,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.894118, 0.894118, 0.894118, 1)
 
 [node name="Foreground" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -34,14 +38,15 @@ color = Color(0.627009, 0.662424, 0.748634, 1)
 
 [node name="Content" type="MarginContainer" parent="Foreground"]
 layout_mode = 2
+theme = ExtResource("1_70pky")
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="TabContainer" type="TabContainer" parent="Foreground/Content"]
+visible = false
 layout_mode = 2
-theme = ExtResource("1_70pky")
 current_tab = 0
 
 [node name="TabBar" type="TabBar" parent="Foreground/Content/TabContainer"]
@@ -52,6 +57,45 @@ metadata/_tab_index = 0
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Foreground/Content"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Foreground/Content/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Foreground/Content/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Foreground/Content/VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 265)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Continue Game"
+icon = ExtResource("2_ig3on")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Foreground/Content/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="Foreground/Content/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Manage Saves"
+icon = ExtResource("3_vukoh")
+
+[node name="MarginContainer" type="MarginContainer" parent="Foreground/Content/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Foreground/Content/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Stage Selection"
+icon = ExtResource("4_wkhi0")
 
 [node name="Header" type="MarginContainer" parent="."]
 layout_mode = 1
