@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbae1iu8gcrap"]
+
+[ext_resource type="Theme" uid="uid://cpsij3ov0p2cu" path="res://UI/TicketUI/ticket_ui_theme.tres" id="1_70pky"]
+[ext_resource type="Texture2D" uid="uid://dejwgkb7hr0df" path="res://Mat/Tex/xp_background.png" id="1_soluf"]
+
+[node name="TicketUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Foreground" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 75
+
+[node name="Background" type="ColorRect" parent="Foreground"]
+layout_mode = 2
+color = Color(0.627009, 0.662424, 0.748634, 1)
+
+[node name="Content" type="MarginContainer" parent="Foreground"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TabContainer" type="TabContainer" parent="Foreground/Content"]
+layout_mode = 2
+theme = ExtResource("1_70pky")
+current_tab = 0
+
+[node name="TabBar" type="TabBar" parent="Foreground/Content/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TabBar2" type="TabBar" parent="Foreground/Content/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Header" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 583
+
+[node name="DebugTexture" type="ColorRect" parent="Header"]
+visible = false
+layout_mode = 2
+color = Color(0.784164, 0.525926, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header"]
+layout_mode = 2
+theme_override_constants/separation = 435
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Header/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_soluf")
+expand_mode = 2
+
+[node name="Uhrzeit" type="Label" parent="Header/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "01. Jan 2025 I 00:00"
+
+[node name="Logo2" type="TextureRect" parent="Header/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_soluf")
+expand_mode = 2
