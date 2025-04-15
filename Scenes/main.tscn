@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c5jbgtamagw6m"]
+[gd_scene load_steps=32 format=3 uid="uid://c5jbgtamagw6m"]
 
 [ext_resource type="Script" uid="uid://qlug1odhyb3y" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bnpdi3k2nj3qj" path="res://Scenes/train.tscn" id="1_ig7tw"]
@@ -8,6 +8,7 @@
 [ext_resource type="LightmapGIData" uid="uid://chmgqclm5vgld" path="res://Stuff/main.lmbake" id="6_7mycd"]
 [ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dv2yweniq0h56" path="res://UI/play_ui.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dbae1iu8gcrap" path="res://UI/ticket_ui.tscn" id="8_d1ilt"]
 [ext_resource type="AudioStream" uid="uid://c30dcusm22lfr" path="res://Audio/SFX/Ambient/Train_Ambient.wav" id="9_kek77"]
 [ext_resource type="AudioStream" uid="uid://dy1n347t5dfnr" path="res://Audio/Music/Main_Menu_jam.wav" id="10_4c57u"]
 
@@ -39,6 +40,14 @@ height = 0.2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4c57u"]
 viewport_path = NodePath("Train/Play/Sprite3D/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1ilt"]
+size = Vector3(0.252197, 1.80469, 1.00433)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6iyac"]
+viewport_path = NodePath("Train/TicketMachine2/Sprite3D/SubViewport")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d1ilt"]
 
 [sub_resource type="Animation" id="Animation_0xm2m"]
 resource_name = "Quit"
@@ -150,12 +159,41 @@ tracks/1/keys = {
 "values": [Vector3(-0.0872664, 0.19024, 0), Vector3(-0.139626, 0, 0), Vector3(-0.139626, 0, 0), Vector3(-1.5708, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_6iyac"]
+resource_name = "ticket_machine"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.54, 1, 1.26667, 2.5, 9.5),
+"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 0.569395, 1, 1),
+"update": 0,
+"values": [Vector3(1.33398, 1.50556, 0.743947), Vector3(1.12, 1.565, 0.759), Vector3(0.879, 1.506, 0.744), Vector3(0.879, 1.506, 0.744), Vector3(0, 1.735, 0.744), Vector3(0, 1.735, -5.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 1.56917),
+"update": 0,
+"values": [Vector3(-0.0872664, 0.19024, 0), Vector3(-0.139626, 0, 0), Vector3(-0.139626, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvp3"]
 _data = {
 &"Quit": SubResource("Animation_0xm2m"),
 &"RESET": SubResource("Animation_h2yge"),
 &"ReverseSettings": SubResource("Animation_7mycd"),
-&"Settings": SubResource("Animation_1bvp3")
+&"Settings": SubResource("Animation_1bvp3"),
+&"ticket_machine": SubResource("Animation_6iyac")
 }
 
 [sub_resource type="Animation" id="Animation_5vw27"]
@@ -245,12 +283,36 @@ size = Vector2i(78, 32)
 
 [node name="PlayUI" parent="Train/Play/Sprite3D/SubViewport" instance=ExtResource("8_5vw27")]
 
+[node name="TicketMachine2" type="Area3D" parent="Train"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29043, 1.47698, -5.52802)
+script = ExtResource("4_lquwl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Train/TicketMachine2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13147, -0.402344, -0.028656)
+shape = SubResource("BoxShape3D_d1ilt")
+
+[node name="Sprite3D" type="Sprite3D" parent="Train/TicketMachine2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+pixel_size = 0.0005
+texture = SubResource("ViewportTexture_6iyac")
+region_rect = Rect2(1.335, 0, 1.11, 0)
+
+[node name="SubViewport" type="SubViewport" parent="Train/TicketMachine2/Sprite3D"]
+size = Vector2i(1152, 648)
+
+[node name="TicketUI" parent="Train/TicketMachine2/Sprite3D/SubViewport" instance=ExtResource("8_d1ilt")]
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.981959, -0.0164807, 0.188375, 0, 0.996195, 0.0871557, -0.189095, -0.0855833, 0.978223, 1.33398, 1.50556, 0.743947)
 fov = 60.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
 current = true
+
+[node name="FootStepPlayer" type="AudioStreamPlayer3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30752, -0.0857143)
+stream = SubResource("AudioStreamRandomizer_d1ilt")
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -281,4 +343,5 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="input_event" from="Train/Play" to="Train/Play" method="_on_input_event"]
+[connection signal="input_event" from="Train/TicketMachine2" to="Train/TicketMachine2" method="_on_input_event"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]
