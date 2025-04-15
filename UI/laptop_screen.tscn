@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://biwahcon8ic04"]
+
+[ext_resource type="Texture2D" uid="uid://dejwgkb7hr0df" path="res://Mat/Tex/xp_background.png" id="1_j76fb"]
+[ext_resource type="Script" uid="uid://cj55tni42dgow" path="res://UI/laptop_screen/quit_btn.gd" id="2_8tmhn"]
+
+[node name="LaptopScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j76fb")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Quit" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 426
+text = "Quit"
+script = ExtResource("2_8tmhn")

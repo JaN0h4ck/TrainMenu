@@ -25,7 +25,3 @@ func _on_input_event(_camera: Camera3D, event: InputEvent, pos: Vector3, _normal
 		e.set_position(texture_position)
 		e.set_global_position(texture_position)
 		viewport.push_input(e)
-
-
-func _on_quit_button_down() -> void:
-	GameManager.request_quit()

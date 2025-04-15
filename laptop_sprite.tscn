@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy7gahw1i4p3n"]
+[gd_scene load_steps=6 format=3 uid="uid://dy7gahw1i4p3n"]
 
 [ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="2_kua4e"]
 [ext_resource type="Script" uid="uid://dhhx2xo2rr6og" path="res://scripts/Area3D.gd" id="2_pxuq5"]
+[ext_resource type="PackedScene" uid="uid://biwahcon8ic04" path="res://UI/laptop_screen.tscn" id="3_pxuq5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
 size = Vector3(0.39, 0.23, 0.01)
@@ -35,31 +36,6 @@ texture = SubResource("ViewportTexture_pxuq5")
 [node name="SubViewport" type="SubViewport" parent="Area3D/Sprite3D"]
 size = Vector2i(1280, 720)
 
-[node name="Control" type="Control" parent="Area3D/Sprite3D/SubViewport"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="Area3D/Sprite3D/SubViewport/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="Quit" type="Button" parent="Area3D/Sprite3D/SubViewport/Control/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 426
-text = "Quit"
+[node name="LaptopScreen" parent="Area3D/Sprite3D/SubViewport" instance=ExtResource("3_pxuq5")]
 
 [connection signal="input_event" from="Area3D" to="Area3D" method="_on_input_event"]
-[connection signal="button_down" from="Area3D/Sprite3D/SubViewport/Control/MarginContainer/Quit" to="Area3D" method="_on_quit_button_down"]
