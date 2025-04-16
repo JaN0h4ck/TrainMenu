@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv2yweniq0h56"]
+[gd_scene load_steps=3 format=3 uid="uid://dv2yweniq0h56"]
 
 [ext_resource type="Theme" uid="uid://bcxu0x2ctqxcp" path="res://Mat/sign_theme.tres" id="1_62ila"]
+[ext_resource type="Script" uid="uid://b276nr7ex0jka" path="res://UI/playui/play_button.gd" id="2_f1i27"]
 
 [node name="PlayUI" type="Control"]
 layout_mode = 3
@@ -34,3 +35,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
+script = ExtResource("2_f1i27")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

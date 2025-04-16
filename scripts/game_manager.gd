@@ -8,7 +8,7 @@ var anim_player: AnimationPlayer
 var config = ConfigFile.new()
 const SETTINGS_PATH: String = "user://settings.cfg"
 
-enum states {idling, quitting, settings, reverse_setting}
+enum states {idling, quitting, settings, reverse_setting, ticket}
 
 var current_state: states = states.idling
 
@@ -58,17 +58,16 @@ func get_video_setting_bool(key: String) -> bool:
 	return config.get_value("video", key, false)
 
 func on_animation_finish(anim_name: StringName):
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if(anim_name == &"Settings"):
 		current_state = states.settings
 		state_changed.emit(current_state)
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if(anim_name == &"ReverseSettings"):
 		current_state = states.idling
 		state_changed.emit(current_state)
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func request_quit():
-	if quit_queued:
+	if current_state != states.idling:
 		return
 	current_state = states.quitting
 	state_changed.emit(current_state)
@@ -76,12 +75,18 @@ func request_quit():
 	anim_player.play(&"Quit")
 
 func request_settings() -> bool:
-	if quit_queued:
-		print("quit already qued")
+	if current_state != states.idling:
 		return false
 	if settings_queued:
 		return false
 	anim_player.play(&"Settings")
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	return true
+
+func request_ticket() -> bool:
+	if current_state != states.idling:
+		return false
+	anim_player.play(&"ticket_machine")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	return true
 
