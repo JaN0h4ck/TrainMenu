@@ -35,7 +35,3 @@ size = Vector3(0.2, 3.3, 3)
 [node name="Ceiling" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -6.5003)
 size = Vector3(3.48, 0.3, 3)
-
-[node name="TicketMachine" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42, 1.074, -5.55843)
-size = Vector3(0.25, 1.8, 1)

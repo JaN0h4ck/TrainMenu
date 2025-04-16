@@ -47,10 +47,10 @@ height = 0.2
 viewport_path = NodePath("Train/Play/Sprite3D/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d1ilt"]
-size = Vector3(0.252197, 1.80469, 1.00433)
+size = Vector3(0.25, 1.85, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6iyac"]
-viewport_path = NodePath("Train/TicketMachine2/Sprite3D/SubViewport")
+viewport_path = NodePath("Train/TicketMachine/Sprite3D/SubViewport")
 
 [sub_resource type="Animation" id="Animation_0xm2m"]
 resource_name = "Quit"
@@ -182,10 +182,10 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.54, 1, 1.26667, 2.5, 9.5, 9.76667, 11.9),
-"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 0.569395, 1, 1, 0.420448, 1),
+"times": PackedFloat32Array(0, 0.54, 1, 1.26667, 2.5, 9.5, 9.76667, 10.5, 11.9),
+"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 0.569395, 1, 1, 0.420448, 0.420448, 1),
 "update": 0,
-"values": [Vector3(1.33398, 1.50556, 0.743947), Vector3(1.12, 1.565, 0.759), Vector3(0.879, 1.506, 0.744), Vector3(0.879, 1.506, 0.744), Vector3(0, 1.735, 0.744), Vector3(0, 1.735, -5.4), Vector3(0, 1.735, -5.4), Vector3(-1, 1.475, -5.53)]
+"values": [Vector3(1.33398, 1.50556, 0.743947), Vector3(1.12, 1.565, 0.759), Vector3(0.879, 1.506, 0.744), Vector3(0.879, 1.506, 0.744), Vector3(0, 1.735, 0.744), Vector3(0, 1.735, -5.4), Vector3(0, 1.735, -5.4), Vector3(0, 1.735, -5.4), Vector3(-1, 1.475, -5.53)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -335,24 +335,28 @@ size = Vector2i(78, 32)
 
 [node name="PlayUI" parent="Train/Play/Sprite3D/SubViewport" instance=ExtResource("8_5vw27")]
 
-[node name="TicketMachine2" type="Area3D" parent="Train"]
+[node name="TicketMachine" type="Area3D" parent="Train"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29043, 1.47698, -5.52802)
 script = ExtResource("4_lquwl")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Train/TicketMachine2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13147, -0.402344, -0.028656)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Train/TicketMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120995, -0.4, 0)
 shape = SubResource("BoxShape3D_d1ilt")
 
-[node name="Sprite3D" type="Sprite3D" parent="Train/TicketMachine2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+[node name="Mesh" type="CSGBox3D" parent="Train/TicketMachine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120995, -0.4, 0)
+size = Vector3(0.25, 1.85, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="Train/TicketMachine"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00710356, 0, 0)
 pixel_size = 0.0005
 texture = SubResource("ViewportTexture_6iyac")
 region_rect = Rect2(1.335, 0, 1.11, 0)
 
-[node name="SubViewport" type="SubViewport" parent="Train/TicketMachine2/Sprite3D"]
+[node name="SubViewport" type="SubViewport" parent="Train/TicketMachine/Sprite3D"]
 size = Vector2i(1152, 648)
 
-[node name="TicketUI" parent="Train/TicketMachine2/Sprite3D/SubViewport" instance=ExtResource("8_d1ilt")]
+[node name="TicketUI" parent="Train/TicketMachine/Sprite3D/SubViewport" instance=ExtResource("8_d1ilt")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.981959, -0.0164807, 0.188375, 0, 0.996195, 0.0871557, -0.189095, -0.0855833, 0.978223, 1.33398, 1.50556, 0.743947)
@@ -395,5 +399,5 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="input_event" from="Train/Play" to="Train/Play" method="_on_input_event"]
-[connection signal="input_event" from="Train/TicketMachine2" to="Train/TicketMachine2" method="_on_input_event"]
+[connection signal="input_event" from="Train/TicketMachine" to="Train/TicketMachine" method="_on_input_event"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="on_quit_animation_finish"]

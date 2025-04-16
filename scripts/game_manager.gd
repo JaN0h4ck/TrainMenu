@@ -86,6 +86,8 @@ func request_settings() -> bool:
 func request_ticket() -> bool:
 	if current_state != states.idling:
 		return false
+	current_state = states.ticket
+	state_changed.emit(current_state)
 	anim_player.play(&"ticket_machine")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	return true
