@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c5jbgtamagw6m"]
+[gd_scene load_steps=37 format=3 uid="uid://c5jbgtamagw6m"]
 
 [ext_resource type="Script" uid="uid://qlug1odhyb3y" path="res://scripts/main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bnpdi3k2nj3qj" path="res://Scenes/train.tscn" id="1_ig7tw"]
@@ -9,8 +9,13 @@
 [ext_resource type="Material" uid="uid://bpybqvmpuq0xi" path="res://Mat/Laptop.tres" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dv2yweniq0h56" path="res://UI/play_ui.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://dbae1iu8gcrap" path="res://UI/ticket_ui.tscn" id="8_d1ilt"]
+[ext_resource type="AudioStream" uid="uid://cr5reeol7o8mo" path="res://Audio/SFX/Steps/steps_keramik_01.wav" id="9_k12tt"]
 [ext_resource type="AudioStream" uid="uid://c30dcusm22lfr" path="res://Audio/SFX/Ambient/Train_Ambient.wav" id="9_kek77"]
 [ext_resource type="AudioStream" uid="uid://dy1n347t5dfnr" path="res://Audio/Music/Main_Menu_jam.wav" id="10_4c57u"]
+[ext_resource type="AudioStream" uid="uid://bp2ht1egqmjrt" path="res://Audio/SFX/Steps/steps_keramik_02.wav" id="10_h1bgf"]
+[ext_resource type="AudioStream" uid="uid://dxjsldx8hk5y7" path="res://Audio/SFX/Steps/steps_keramik_03.wav" id="11_b3802"]
+[ext_resource type="AudioStream" uid="uid://dn101a4fywper" path="res://Audio/SFX/Steps/steps_keramik_04.wav" id="12_fevyy"]
+[ext_resource type="AudioStream" uid="uid://dd4wguudyfl5i" path="res://Audio/SFX/Steps/steps_keramik_05.wav" id="13_hibaj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h2yge"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -46,8 +51,6 @@ size = Vector3(0.252197, 1.80469, 1.00433)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6iyac"]
 viewport_path = NodePath("Train/TicketMachine2/Sprite3D/SubViewport")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d1ilt"]
 
 [sub_resource type="Animation" id="Animation_0xm2m"]
 resource_name = "Quit"
@@ -159,9 +162,19 @@ tracks/1/keys = {
 "values": [Vector3(-0.0872664, 0.19024, 0), Vector3(-0.139626, 0, 0), Vector3(-0.139626, 0, 0), Vector3(-1.5708, 0, 0)]
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d1ilt"]
+random_pitch = 1.1
+random_volume_offset_db = 0.5
+streams_count = 5
+stream_0/stream = ExtResource("9_k12tt")
+stream_1/stream = ExtResource("10_h1bgf")
+stream_2/stream = ExtResource("11_b3802")
+stream_3/stream = ExtResource("12_fevyy")
+stream_4/stream = ExtResource("13_hibaj")
+
 [sub_resource type="Animation" id="Animation_6iyac"]
 resource_name = "ticket_machine"
-length = 10.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -169,10 +182,10 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.54, 1, 1.26667, 2.5, 9.5),
-"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 0.569395, 1, 1),
+"times": PackedFloat32Array(0, 0.54, 1, 1.26667, 2.5, 9.5, 9.76667, 11.9),
+"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 0.569395, 1, 1, 0.420448, 1),
 "update": 0,
-"values": [Vector3(1.33398, 1.50556, 0.743947), Vector3(1.12, 1.565, 0.759), Vector3(0.879, 1.506, 0.744), Vector3(0.879, 1.506, 0.744), Vector3(0, 1.735, 0.744), Vector3(0, 1.735, -5.4)]
+"values": [Vector3(1.33398, 1.50556, 0.743947), Vector3(1.12, 1.565, 0.759), Vector3(0.879, 1.506, 0.744), Vector3(0.879, 1.506, 0.744), Vector3(0, 1.735, 0.744), Vector3(0, 1.735, -5.4), Vector3(0, 1.735, -5.4), Vector3(-1, 1.475, -5.53)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -181,11 +194,50 @@ tracks/1/path = NodePath("Camera3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5),
-"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 1.56917),
+"times": PackedFloat32Array(0, 1, 1.5, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 9.75, 10.5, 11.9),
+"transitions": PackedFloat32Array(1.1, 1.1, 1.1, 1.56917, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.0872664, 0.19024, 0), Vector3(-0.139626, 0, 0), Vector3(-0.139626, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(-0.0872664, 0.19024, 0), Vector3(-0.139626, 0, 0), Vector3(-0.139626, 0, 0), Vector3(0, 0, 0), Vector3(-0.0907571, 0, 0), Vector3(0.0174533, 0, 0), Vector3(-0.0907571, 0, 0), Vector3(0.0174533, 0, 0), Vector3(-0.0907571, 0, 0), Vector3(0.0174533, 0, 0), Vector3(-0.0907571, 0, 0), Vector3(0.0174533, 0, 0), Vector3(-0.0907571, 0, 0), Vector3(0.0174533, 0, 0), Vector3(-0.0907571, 0, 0), Vector3(0.0174533, 0, 0), Vector3(-0.0907571, 0, 0), Vector3(0.0174533, 0, 0), Vector3(0.0174533, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0)]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D/FootStepPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_d1ilt")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_d1ilt")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_d1ilt")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_d1ilt")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_d1ilt")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_d1ilt")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_d1ilt")
+}],
+"times": PackedFloat32Array(3, 4.01, 5.01, 5.99, 7, 8, 9)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvp3"]
 _data = {
@@ -311,7 +363,6 @@ current = true
 
 [node name="FootStepPlayer" type="AudioStreamPlayer3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30752, -0.0857143)
-stream = SubResource("AudioStreamRandomizer_d1ilt")
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -335,6 +386,7 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.266392, 0)
 stream = ExtResource("9_kek77")
 autoplay = true
+max_distance = 30.0
 bus = &"Ambient"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
