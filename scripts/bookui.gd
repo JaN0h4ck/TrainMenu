@@ -5,11 +5,17 @@ extends Node2D
 @onready var borderless: CheckBox = $Control/MarginContainer/SettingsUI/HBoxContainer/Left/Borderless
 
 func _ready() -> void:
+	GameManager.state_changed.connect(_on_gm_state_changed)
 	settings_btn.visible = true
 	settings_ui.visible = false
 	borderless.disabled = true
 	$Control/MarginContainer/SettingsUI/HBoxContainer/Left/FullScreen.button_pressed = GameManager.get_video_setting_bool("fullscreen")
 	$Control/MarginContainer/SettingsUI/HBoxContainer/Left/Borderless.button_pressed = GameManager.get_video_setting_bool("borderless")
+
+func _on_gm_state_changed(new_state: GameManager.states)-> void:
+	if new_state == GameManager.states.reverse_setting:
+		settings_btn.visible = true
+		settings_ui.visible = false
 
 func _on_settings_btn_pressed() -> void:
 	if GameManager.request_settings():

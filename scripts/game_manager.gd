@@ -8,7 +8,7 @@ var anim_player: AnimationPlayer
 var config = ConfigFile.new()
 const SETTINGS_PATH: String = "user://settings.cfg"
 
-enum states {idling, quitting, settings, reverse_setting, ticket}
+enum states {idling, quitting, settings, reverse_setting, ticket, reverse_ticket}
 
 var current_state: states = states.idling
 
@@ -42,6 +42,14 @@ func _ready() -> void:
 		config.set_value("audio", "sfx_volume", 1.0)
 		config.set_value("audio", "music_volume", 1.0)
 		config.save(SETTINGS_PATH)
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed(&"ui_cancel") and not anim_player.is_playing():
+		match current_state:
+			states.settings:
+				_return_from_settings()
+			states.ticket:
+				_return_from_ticket()
 
 func save_video_setting(key: String, _value):
 	config.set_value("video", key, _value)
@@ -94,9 +102,19 @@ func request_ticket() -> bool:
 
 func request_settings_to_idle() -> bool:
 	if current_state == states.settings:
-		current_state = states.reverse_setting
-		state_changed.emit(current_state)
-		anim_player.play(&"ReverseSettings")
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		_return_from_settings()
 		return true
 	return false
+
+func _return_from_settings() -> void:
+	current_state = states.reverse_setting
+	state_changed.emit(current_state)
+	anim_player.play(&"ReverseSettings")
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _return_from_ticket() -> void:
+	current_state = states.reverse_ticket
+	state_changed.emit(current_state)
+	#anim_player.play() TODO
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED TODO
+	anim_player.play(&"ReverseSettings") #TODO
