@@ -1,4 +1,26 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cpsij3ov0p2cu"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cpsij3ov0p2cu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76rdc"]
+content_margin_left = 15.0
+bg_color = Color(0.74558, 0.74558, 0.74558, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.756863, 0.0705882, 0.109804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q48b5"]
+content_margin_left = 15.0
+bg_color = Color(0.74558, 0.74558, 0.74558, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xdjl"]
 content_margin_left = 15.0
@@ -9,9 +31,9 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 shadow_size = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76rdc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36nhd"]
 content_margin_left = 15.0
-bg_color = Color(0.894922, 0.894922, 0.894922, 1)
+bg_color = Color(0.321728, 0.321728, 0.321728, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -77,9 +99,13 @@ bg_color = Color(0.201715, 0.225976, 0.286683, 1)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/constants/icon_max_width = 230
+Button/styles/focus = SubResource("StyleBoxFlat_76rdc")
+Button/styles/hover = SubResource("StyleBoxFlat_q48b5")
 Button/styles/normal = SubResource("StyleBoxFlat_1xdjl")
-Button/styles/pressed = SubResource("StyleBoxFlat_76rdc")
+Button/styles/pressed = SubResource("StyleBoxFlat_36nhd")
 DialogBtn/base_type = &"Button"
 DialogBtn/colors/font_color = Color(1, 1, 1, 1)
 DialogBtn/styles/focus = SubResource("StyleBoxFlat_v51gx")
