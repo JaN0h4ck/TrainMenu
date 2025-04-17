@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbae1iu8gcrap"]
+[gd_scene load_steps=7 format=3 uid="uid://dbae1iu8gcrap"]
 
 [ext_resource type="Theme" uid="uid://cpsij3ov0p2cu" path="res://UI/TicketUI/ticket_ui_theme.tres" id="1_70pky"]
 [ext_resource type="Texture2D" uid="uid://ddgkkodm0a32e" path="res://UI/TicketUI/IconContinue.png" id="2_ig3on"]
 [ext_resource type="Texture2D" uid="uid://nr7sd0no75bv" path="res://UI/TicketUI/IconManage.png" id="3_vukoh"]
-[ext_resource type="Script" uid="uid://dvicsllpjaimb" path="res://UI/button.gd" id="3_wkhi0"]
 [ext_resource type="Texture2D" uid="uid://dbar8ccfy3tjy" path="res://UI/TicketUI/IconSelect.png" id="4_wkhi0"]
 [ext_resource type="Texture2D" uid="uid://covg0o3be4ap7" path="res://UI/TicketUI/logo_jan.png" id="5_vukoh"]
 [ext_resource type="Texture2D" uid="uid://be1qchl72r80g" path="res://UI/TicketUI/logo_jake.png" id="6_wkhi0"]
@@ -73,12 +72,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="Foreground/Content/Main/Upper/Continue"]
-custom_minimum_size = Vector2(0, 265)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Continue Game"
 icon = ExtResource("2_ig3on")
-script = ExtResource("3_wkhi0")
 
 [node name="Manage" type="MarginContainer" parent="Foreground/Content/Main/Upper"]
 layout_mode = 2
@@ -107,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
