@@ -72,7 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="Foreground/Content/Main/Upper/Continue"]
-custom_minimum_size = Vector2(0, 265)
+custom_minimum_size = Vector2(0, 243)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Continue Game"
@@ -93,10 +93,20 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="Foreground/Content/Main/Select"]
+custom_minimum_size = Vector2(0, 243)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Stage Selection"
 icon = ExtResource("4_wkhi0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Foreground/Content/Main"]
+layout_mode = 2
+
+[node name="BackBtn" type="Button" parent="Foreground/Content/Main/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"DialogBtn"
+text = "Back"
 
 [node name="Header" type="MarginContainer" parent="."]
 layout_mode = 1
