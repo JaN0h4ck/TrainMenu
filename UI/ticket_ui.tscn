@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbae1iu8gcrap"]
+[gd_scene load_steps=9 format=3 uid="uid://dbae1iu8gcrap"]
 
 [ext_resource type="Theme" uid="uid://cpsij3ov0p2cu" path="res://UI/TicketUI/ticket_ui_theme.tres" id="1_70pky"]
+[ext_resource type="Script" uid="uid://dnjdp5cosisi" path="res://UI/TicketUI/ticket_ui.gd" id="1_sj6nn"]
 [ext_resource type="Texture2D" uid="uid://ddgkkodm0a32e" path="res://UI/TicketUI/IconContinue.png" id="2_ig3on"]
 [ext_resource type="Texture2D" uid="uid://nr7sd0no75bv" path="res://UI/TicketUI/IconManage.png" id="3_vukoh"]
 [ext_resource type="Texture2D" uid="uid://dbar8ccfy3tjy" path="res://UI/TicketUI/IconSelect.png" id="4_wkhi0"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_sj6nn")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -147,3 +149,5 @@ script = ExtResource("6_sj6nn")
 layout_mode = 2
 texture = ExtResource("6_wkhi0")
 expand_mode = 2
+
+[connection signal="pressed" from="Foreground/Content/Main/MarginContainer/BackBtn" to="." method="_on_back_btn_pressed"]

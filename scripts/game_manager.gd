@@ -100,6 +100,13 @@ func request_ticket() -> bool:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	return true
 
+func request_return_to_idle() -> bool:
+	#TODO some state logic
+	match current_state:
+		_:
+			_return_from_settings()
+			return true
+
 func request_settings_to_idle() -> bool:
 	if current_state == states.settings:
 		_return_from_settings()
